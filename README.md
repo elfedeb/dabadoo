@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # FIRST COMMIT
 
 # react-apollo-instagram-example
@@ -60,3 +61,7 @@ with
 Join our [Slack community](http://slack.graph.cool/) if you run into issues or have questions. We love talking to you!
 
 ![](http://i.imgur.com/5RHR6Ku.png)
+=======
+# dabadoo
+A proof of concept for a booksmarting app
+>>>>>>> bb52876c19dd10cb2eafb1bacc43f6d15866eb9a
