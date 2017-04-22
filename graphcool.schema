@@ -1,11 +1,3 @@
-type Post {
-  createdAt: DateTime
-  description: String!
-  id: ID!
-  imageUrl: String!
-  justURL: String!
-  updatedAt: DateTime
-}
 type Bookmark {
   id: ID!
   createdAt: DateTime

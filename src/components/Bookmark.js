@@ -12,11 +12,13 @@ class Bookmark extends React.Component {
   }
 
   render () {
+    let imageSrc = this.props.bookmark.imageURL ? this.props.bookmark.imageURL : require('../assets/imgph.png')
+
     return (
       <article className="mw5 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
         <a href={this.props.bookmark.url}>
           <div className="tc">
-            <img src={this.props.bookmark.imageURL} className="br-100 h3 w3 dib" alt="" />
+            <img src={imageSrc} role='presentation' className="br-100 h3 w3 dib" alt="" />
             <h1 className="f4">{this.props.bookmark.title}</h1>
             <hr className="mw3 bb bw1 b--black-10" />
           </div>

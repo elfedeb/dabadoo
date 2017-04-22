@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import ListPage from './components/ListPage'
 import CreateBookmark from './components/CreateBookmark'
-import DetailPage from './components/DetailPage'
 import { Router, Route, browserHistory } from 'react-router'
 import ApolloClient, { createNetworkInterface } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
@@ -18,7 +17,6 @@ ReactDOM.render((
     <Router history={browserHistory}>
       <Route path='/' component={ListPage}>
         <Route path='bookmark' component={CreateBookmark} />
-        <Route path='bookmark/:id' component={DetailPage} />
       </Route>
     </Router>
   </ApolloProvider>

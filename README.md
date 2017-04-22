@@ -1,27 +1,10 @@
-<<<<<<< HEAD
-# FIRST COMMIT
 
-# react-apollo-instagram-example
-![](http://i.imgur.com/CH44AZF.png)
+# Dabadoo
+A proof of concept for a booksmarting app
+Using React, Apollo, GraphQL and Graphcool with some server stuff
 
 ## Getting Started
 
-After [downloading this example](https://github.com/graphcool-examples/react-apollo-instagram-example/archive/master.zip) please follow these steps or watch the [walkthrough video](https://www.youtube.com/watch?v=SooujCyMHe4) for this example!
-
-### 1. Create an account
-
-To run this example, please create a [Graphcool](http://graph.cool) account and **copy your endpoint**. This shouldn't take longer than a minute. We promise!
-
-![](http://i.imgur.com/ytXDR4B.gif)
-
-This is how our GraphQL data model looks like:
-
-```graphql
-type Post {
-  description: String!
-  imageUrl: String!
-}
-```
 
 ### 2. Configure your GraphQL Endpoint
 
@@ -54,14 +37,3 @@ with
 ```json
 "start": "set REACT_APP_GRAPHQL_ENDPOINT=https://api.graph.cool/simple/v1/__PROJECT_ID__&&react-scripts start",
 ```
-
-
-## Help & Community [![Slack Status](https://slack.graph.cool/badge.svg)](https://slack.graph.cool)
-
-Join our [Slack community](http://slack.graph.cool/) if you run into issues or have questions. We love talking to you!
-
-![](http://i.imgur.com/5RHR6Ku.png)
-=======
-# dabadoo
-A proof of concept for a booksmarting app
->>>>>>> bb52876c19dd10cb2eafb1bacc43f6d15866eb9a
