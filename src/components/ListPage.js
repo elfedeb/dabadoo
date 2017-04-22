@@ -45,12 +45,12 @@ class ListPage extends React.Component {
 
 
 const FeedQuery = gql`query allBookmarks {
-  allBookmarks(orderby: createdAt_DESC) {
+  allBookmarks(orderBy: createdAt_DESC) {
     id
     url
     title
     host
-    imageurl
+    imageURL
     description
   }
 }`
