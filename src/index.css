@@ -20,17 +20,17 @@ html {
   height: 452px;
 }
 
-.post {
+.bookmark {
   box-shadow: 0 1px 6px rgba(0,0,0,.15);
 }
 
-.post .image {
+.bookmark .image {
   width: 350px;
   height: 350px;
   flex: 0 0 350px;
 }
 
-.post .description {
+.bookmark .description {
   flex: 1;
   padding-left: 25px;
   font-size: 25px;
@@ -48,7 +48,7 @@ html {
   font-size: 38px;
 }
 
-.new-post {
+.new-bookmark {
   background-color: rgba(0,0,0,0.04);
 }
 

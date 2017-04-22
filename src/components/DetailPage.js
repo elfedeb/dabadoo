@@ -24,12 +24,12 @@ class DetailPage extends React.Component {
       return (<div>Loading</div>)
     }
 
-    const {Post} = this.props.data
+    const {Bookmark} = this.props.data
 
     return (
       <Modal
         isOpen
-        contentLabel='Create Post'
+        contentLabel='Create Bookmark'
         style={detailModalStyle}
         onRequestClose={this.props.router.goBack}
       >
@@ -42,17 +42,17 @@ class DetailPage extends React.Component {
         >
           Delete
         </div>
-        <div className='bg-white detail flex flex-column no-underline br2 h-100'>
-          <div
-            className='image'
-            style={{
-              backgroundImage: `url(${Post.imageUrl})`,
-              backgroundSize: 'cover',
-              paddingBottom: '100%',
-            }}
-          />
+        <div className='bg-white detail flex flex-column no-underline br2 h-50'>
+          <h2 className='flex items-center black-80 fw3'>
+            {Bookmark.title}
+          </h2>
+          <img alt='Dodo' className='image' src={Bookmark.imageURL} />
           <div className='flex items-center black-80 fw3 description'>
-            {Post.description}
+            URL: {Bookmark.url}
+            <br /> and Host: {Bookmark.host}
+          </div>
+          <div className='flex items-center black-80 fw3 description'>
+            Description: {Bookmark.description}
           </div>
         </div>
       </Modal>
@@ -60,7 +60,7 @@ class DetailPage extends React.Component {
   }
 
   handleDelete = async () => {
-    await this.props.mutate({variables: {id: this.props.data.Post.id}})
+    await this.props.mutate({variables: {id: this.props.data.Bookmark.id}})
 
     this.props.router.push('/')
     this.props.data.refetch()
@@ -69,22 +69,25 @@ class DetailPage extends React.Component {
 
 
 const deleteMutation = gql`
-  mutation deletePost($id: ID!) {
-    deletePost(id: $id) {
+  mutation deleteBookmark($id: ID!) {
+    deleteBookmark(id: $id) {
       id
     }
   }
 `
 
-const PostQuery = gql`query post($id: ID!) {
-  Post(id: $id) {
+const BookmarkQuery = gql`query bookmark($id: ID!) {
+  Bookmark(id: $id) {
     id
-    imageUrl
+    url
+    title
+    host
+    imageURL
     description
   }
 }`
 
-const DetailPageWithData = graphql(PostQuery, {
+const DetailPageWithData = graphql(BookmarkQuery, {
   options: ({params}) => ({
     variables: {
       id: params.id

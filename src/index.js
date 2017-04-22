@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ListPage from './components/ListPage'
-import CreatePage from './components/CreatePage'
+import CreateBookmark from './components/CreateBookmark'
 import DetailPage from './components/DetailPage'
 import { Router, Route, browserHistory } from 'react-router'
 import ApolloClient, { createNetworkInterface } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
 import 'tachyons'
-import './index.css'
+// import './index.css'
 
 const networkInterface = createNetworkInterface({ uri: process.env.REACT_APP_GRAPHQL_ENDPOINT })
 
@@ -17,8 +17,8 @@ ReactDOM.render((
   <ApolloProvider client={client}>
     <Router history={browserHistory}>
       <Route path='/' component={ListPage}>
-        <Route path='create' component={CreatePage} />
-        <Route path='post/:id' component={DetailPage} />
+        <Route path='bookmark' component={CreateBookmark} />
+        <Route path='bookmark/:id' component={DetailPage} />
       </Route>
     </Router>
   </ApolloProvider>

@@ -3,5 +3,16 @@ type Post {
   description: String!
   id: ID!
   imageUrl: String!
+  justURL: String!
   updatedAt: DateTime
+}
+type Bookmark {
+  id: ID!
+  createdAt: DateTime
+  updatedAt: DateTime
+  url: String!
+  title: String
+  host: String!
+  imageURL: String
+  description: String
 }

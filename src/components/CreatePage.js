@@ -9,42 +9,36 @@ class CreatePage extends React.Component {
 
   static propTypes = {
     router: React.PropTypes.object,
-    addPost: React.PropTypes.func,
+    addBookmark: React.PropTypes.func,
   }
 
   state = {
     description: '',
-    imageUrl: '',
+    justURL: '',
   }
 
   render () {
     return (
       <Modal
         isOpen
-        contentLabel='Create Post'
+        contentLabel='Create Bookmark'
         style={modalStyle}
         onRequestClose={this.props.router.goBack}
       >
         <div className='pa4 flex justify-center bg-white'>
           <div style={{ maxWidth: 400 }} className=''>
-            {this.state.imageUrl &&
-              <img src={this.state.imageUrl} role='presentation' className='w-100 mv3' />
+            {this.state.justURL &&
+              <img src={this.state.justURL} role='presentation' className='w-100 mv3' />
             }
             <input
               className='w-100 pa3 mv2'
-              value={this.state.imageUrl}
-              placeholder='Image Url'
-              onChange={(e) => this.setState({imageUrl: e.target.value})}
+              value={this.state.justURL}
+              placeholder='Just the URL'
+              onChange={(e) => this.setState({justURL: e.target.value})}
               autoFocus
             />
-            <input
-              className='w-100 pa3 mv2'
-              value={this.state.description}
-              placeholder='Description'
-              onChange={(e) => this.setState({description: e.target.value})}
-            />
-            {this.state.description && this.state.imageUrl &&
-              <button className='pa3 bg-black-10 bn dim ttu pointer' onClick={this.handlePost}>Post</button>
+            { this.state.justURL &&
+              <button className='pa3 bg-black-10 bn dim ttu pointer' onClick={this.handleBookmark}>Bookmark</button>
             }
           </div>
         </div>
@@ -52,24 +46,25 @@ class CreatePage extends React.Component {
     )
   }
 
-  handlePost = async () => {
-    const {description, imageUrl} = this.state
-    await this.props.addPost({variables: { description, imageUrl }})
+  handleBookmark = async () => {
+    const justURL = this.state.justURL
+    const description = 'This is the description for: ' + justURL
+    await this.props.addBookmark({variables: { description, justURL }})
 
     window.location.pathname = '/'
   }
 }
 
 const addMutation = gql`
-  mutation addPost($description: String!, $imageUrl: String!) {
-    createPost(description: $description, imageUrl: $imageUrl) {
+  mutation addBookmark($description: String!, $justURL: String!) {
+    createBookmark(description: $description, justURL: $justURL) {
       id
       description
-      imageUrl
+      justURL
     }
   }
 `
 
-const PageWithMutation = graphql(addMutation, { name: 'addPost' })(CreatePage)
+const PageWithMutation = graphql(addMutation, { name: 'addBookmark' })(CreatePage)
 
 export default withRouter(PageWithMutation)
