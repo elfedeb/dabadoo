@@ -56,8 +56,8 @@ class CreateBookmark extends React.Component {
     )
   }
 
-  handleBookmark =  () => {
-    const url = this.state.url
+  handleBookmark = async () => {
+    const {url} = this.state
     console.log('This is the URL: ' + url )
     // Check if its a URL
     if (!validator.isURL(url)) { return }
@@ -90,7 +90,6 @@ class CreateBookmark extends React.Component {
           // If everything is OK save.
           .then(function(linkData) {
               console.log('Saving on Parse')
-                  // ParseReact.Mutation.Create('LinkListing', linkData).dispatch()
               const { url, title, host, imageURL, description } = linkData
               that.props.addBookmark({
                 variables: {
@@ -104,10 +103,10 @@ class CreateBookmark extends React.Component {
               console.log('... Saved link with this title: ' + title + ' and host: ' + host)
               // phew... after all that go ahead an clean the text field
               that.setState({ url: '' })
+              that.props.refresh()
               
           }         
       )
-        
   
 }
 }

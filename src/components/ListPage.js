@@ -28,7 +28,7 @@ class ListPage extends React.Component {
     return (
       <div className={'w-100 flex justify-center pa6'}>
         <div className='w-100 flex flex-wrap' style={{maxwidth: 1150}}>
-          <CreateBookmark />
+          <CreateBookmark refresh={() => this.props.data.refetch()} />
           {this.props.data.allBookmarks.map((bookmark) => (
             <Bookmark
               key={bookmark.id}

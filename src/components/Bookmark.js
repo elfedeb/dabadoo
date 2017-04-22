@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import {Link} from 'react-router'
+// import { Link } from 'react-router'
 
 class Bookmark extends React.Component {
 
@@ -13,16 +13,19 @@ class Bookmark extends React.Component {
 
   render () {
     return (
-      <Link
-        className='bg-white ma3 box bookmark flex flex-column no-underline br2'
-        to={`${this.props.bookmark.url}`}
-      >
-        <img alt='' src={this.props.bookmark.imageURL} />
-        <div className='flex items-center black-80 fw3 description'>
-          {this.props.bookmark.description}
-        </div>
-        <span className='red f6 pointer dim' onClick={this.handleDelete}>Delete</span>
-      </Link>
+      <article className="mw5 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
+        <a href={this.props.bookmark.url}>
+          <div className="tc">
+            <img src={this.props.bookmark.imageURL} className="br-100 h3 w3 dib" alt="" />
+            <h1 className="f4">{this.props.bookmark.title}</h1>
+            <hr className="mw3 bb bw1 b--black-10" />
+          </div>
+          <p className="lh-copy measure center f6 black-70">
+            {this.props.bookmark.description}
+          </p>
+        </a>
+        <span className="f6 link dim br2 ph3 pv2 mb2 dib white bg-dark-red" onClick={this.handleDelete}>Delete</span>
+      </article>
     )
   }
 
